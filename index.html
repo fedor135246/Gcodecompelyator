@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>G-code сонвертор</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <h1>Генератор G-code из векторного изображения</h1>
+        </header>
+        <div class="setings">
+            <div class="load">
+                <input type="file"  id="myFile" class="parametr" accept=".svg"/>
+                <button class="parametr" onclick="reload()">Перещитать g-code</button>
+            </div>
+            <!-- <button class="parametr" onclick="createGcode()">Создать G-code</button> -->
+            <div class="load">
+                <button data-clear-button class="parametr" onclick="clear()">Очистить экран</button>
+                <button class="parametr" id="type" onclick="types()">Глобальная система отсчёта координат</button>
+            </div>
+            <div class="set_size">
+                <p>Размер отображаемого фала</p>
+                <div class="size">
+                    <input type="range" id="cowbell" min="0" max="500" value="100" step="5" />
+                    <div id="cowbellt"></div>
+                </div>
+            </div>
+            <div class="set_size">
+                <div class="input">
+                    <input type="number" id="tentaclesshsm" name="tentaclesshsm" min="10" max="100" value="1" />
+                    <div>шагов/см</div>
+                </div>
+                <div class="input">
+                    <div>ширина</div>
+                    <input type="number" id="tentaclessm" name="tentaclessm" min="10" max="100" value="10"/>
+                    <div>см</div>
+                </div>
+            </div>
+            <div class="load">
+                <button class="parametr" onclick="safefieltxt()">Сохранить файл .txt</button>
+                <button class="parametr" onclick="safefielgcode()">Сохранить файл .gcode</button>
+            </div>
+        </div>
+        </div>
+        <div class="body">
+            <div>
+                <p class="header">Ваше изображение</p>
+                <canvas class="canvas" id="myCanvas" height="1000" width="1000"></canvas>
+            </div>
+            <div>
+                <p class="header">Предпросмотор G-code</p>
+                <div class="code">
+                    <div class="code_text" id="myCode"></div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        
+    </body>
+</html>
