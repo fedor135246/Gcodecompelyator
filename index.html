@@ -13,18 +13,27 @@
         <div class="setings">
             <div class="load">
                 <input type="file"  id="myFile" class="parametr" accept=".svg"/>
-                <button class="parametr" onclick="reload()">Перещитать g-code</button>
+                <button class="parametr" data-button-reload>Перещитать g-code</button>
             </div>
             <!-- <button class="parametr" onclick="createGcode()">Создать G-code</button> -->
             <div class="load">
                 <button data-clear-button class="parametr" onclick="clear()">Очистить экран</button>
-                <button class="parametr" id="type" onclick="types()">Глобальная система отсчёта координат</button>
+                <button class="parametr" id="typess" data-button-types>Глобальная система отсчёта координат</button>
             </div>
             <div class="set_size">
-                <p>Размер отображаемого фала</p>
-                <div class="size">
-                    <input type="range" id="cowbell" min="0" max="500" value="100" step="5" />
-                    <div id="cowbellt"></div>
+                <div>
+                    <p>Размер отображаемого фала 1</p>
+                    <div class="size">
+                        <input type="range" id="cowbell" min="0" max="500" value="100" step="5" />
+                        <div id="cowbellt"></div>
+                    </div>
+                </div>
+                <div >
+                    <p>Размер отображаемого фала 2</p>
+                    <div class="size">
+                        <input type="range" id="cowbell" min="0" max="500" value="100" step="5" />
+                        <div id="cowbellt"></div>
+                    </div>
                 </div>
             </div>
             <div class="set_size">
@@ -39,8 +48,8 @@
                 </div>
             </div>
             <div class="load">
-                <button class="parametr" onclick="safefieltxt()">Сохранить файл .txt</button>
-                <button class="parametr" onclick="safefielgcode()">Сохранить файл .gcode</button>
+                <button class="parametr" data-button-save-txt>Сохранить файл .txt</button>
+                <button class="parametr" data-button-save-gcode>Сохранить файл .gcode</button>
             </div>
         </div>
         </div>
@@ -56,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <script src="script.js"></script>
+        <script src="script.js" type="module"></script>
         
     </body>
 </html>
