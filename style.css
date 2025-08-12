@@ -5,21 +5,32 @@
 }
 body{
     margin: 0;
-    background: #8e9eab;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab, #eef2f3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #eef2f3, #8e9eab, #eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
 .header{
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+.bakGround{
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .setings{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin: 10px;
 }
 .parametr{
     background-color: white;
@@ -75,10 +86,45 @@ body{
     display: flex;
     flex-direction: row;
     gap: 5px;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
 }
-
+.param{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
 .display-none{
     display: none;
+}
+.probel{
+    margin: 5px;
+}
+.param_1{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.param_2{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.clear{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.setings_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.palka{
+    width: 2px;
+    height: 100px;
+    background-color: black;
+    color: black;
+    margin: 10;
 }

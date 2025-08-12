@@ -1,4 +1,5 @@
-// import {change} from './important.js'
+import {number} from './important.js'
+
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var code = document.getElementById("myCode");
@@ -6,7 +7,7 @@ var typese = document.getElementById('typess');
 ctx.beginPath();
 var codes="";
 let content="";
-let widthsm=10,stsm=1,wightpxsm,heightpxsm
+let widthsm=10,stsm=1,wightpxsm=10,heightpxsm=10
 let typesis=["Глобальная система отсчёта координат","Относительная система отсчёта координат"]
 let typels=0
 let xpos=0,ypos=0;
@@ -65,6 +66,21 @@ function reload(){
 }
 
 document.querySelector('[data-button-reload]').addEventListener('click', reload);
+
+function clear_info(){
+    codes=""
+    content=""
+    drow_code=""
+    if(number==1){
+        drow_drow(drow_code)
+    }
+    else{
+        drow(content)
+    }
+    code.innerText=""
+}
+
+document.querySelector('[data-clear-info-button]').addEventListener('click', clear_info);
 
 function clear(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -253,7 +269,15 @@ widthsmget.addEventListener('change', (event) => {
     widthsm=widthsmget.value;
 });
 
+const widthHolst = document.getElementById('widthHolst');
+widthHolst.addEventListener('change', (event) => {
+    heightpxsm=1000/widthHolst.value;
+});
 
+const heightHolst = document.getElementById('heightHolst');
+heightHolst.addEventListener('change', (event) => {
+    heightpxsm=1000/heightHolst.value;
+});
 //рисование
 let x_start,y_start,x_finish,y_finish, drow_code=""
 const corect= 1000/700
@@ -261,15 +285,20 @@ document.querySelector('canvas').addEventListener('mousedown', start)
 document.querySelector('canvas').addEventListener('mouseup', finish)
 
 function start(e){
-    console.log(e.offsetX,e.offsetY,"start")
-    drow_code+=" x1="+(e.offsetX*corect)+", y1="+(e.offsetY*corect)+","
+    if(number==1){
+        console.log(e.offsetX,e.offsetY,"start")
+        drow_code+=" x1="+(e.offsetX*corect)+", y1="+(e.offsetY*corect)+","
+    }
 }
 
 function finish(e){
-    console.log(e.offsetX,e.offsetY,"finish")
-    drow_code+=" x2="+(e.offsetX*corect)+", y2="+(e.offsetY*corect)+",;"
-    drow_drow(drow_code);
-    code.innerText=codes
+    if(number==1){
+        console.log(e.offsetX,e.offsetY,"finish")
+        drow_code+=" x2="+(e.offsetX*corect)+", y2="+(e.offsetY*corect)+",;"
+        codes=""
+        drow_drow(drow_code);
+        code.innerText=codes
+    }
 }
 
 function drow_drow(msg){
