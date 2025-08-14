@@ -13,7 +13,12 @@ let typels=0
 let xpos=0,ypos=0;
 //кнопки
 function safeFileTxt(){
-    const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
+    if(number){
+        const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
+    }
+    else{
+        const blob = new Blob([drow_code], { type: "text/plain;charset=utf-8" })
+    }
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -27,7 +32,12 @@ function safeFileTxt(){
 }
 document.querySelector('[data-button-save-txt]').addEventListener('click', safeFileTxt);
 function safeFileGcode(){
-    const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
+    if(number){
+        const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
+    }
+    else{
+        const blob = new Blob([drow_code], { type: "text/plain;charset=utf-8" })
+    }
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
