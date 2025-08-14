@@ -61,6 +61,7 @@ body{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .code_text{
+    overflow-y: scroll;
     margin: 10px;
 }
 .size{
