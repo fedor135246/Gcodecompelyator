@@ -220,10 +220,10 @@ function polygon(msg){
     for(let i=1;i<sides+1;i++){
         ctx.lineTo(points[i].split(",")[0]*(sizeInput.value/100), points[i].split(",")[1]*(sizeInput.value/100));
         if(typels==0){
-            codes+="G01 X"+convert_width(parseFloat(points[i].split(",")[0]))+" Y"+convert_height(parseFloat(points[i].split(",")[1]))+"\n";
+            codes+="G01 X"+convert_width(parseFloat(points[i].split(",")[0]))+" Y"+convert_height(parseFloat(points[i].split(",")[1]))+" F100\n";
         }
         else{
-            codes+="G01 X"+convert_width(parseFloat(points[i].split(",")[0])+xpos)+" Y"+convert_height(parseFloat(points[i].split(",")[1])+ypos)+"\n";
+            codes+="G01 X"+convert_width(parseFloat(points[i].split(",")[0])+xpos)+" Y"+convert_height(parseFloat(points[i].split(",")[1])+ypos)+" F100\n";
             xpos=parseFloat(points[i].split(",")[0])
             ypos=parseFloat(points[i].split(",")[1])
         }
