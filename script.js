@@ -6,7 +6,7 @@ var code = document.getElementById("myCode");
 var typese = document.getElementById('typess');
 ctx.beginPath();
 var codes="";
-let content="";
+let content="",content_copi="";
 let widthsm=10,stsm=1,wightpxsm=10,heightpxsm=10
 let typesis=["Глобальная система отсчёта координат","Относительная система отсчёта координат"]
 let typels=0
@@ -62,6 +62,7 @@ document.querySelector('[data-button-types]').addEventListener('click', types);
 
 function reload(){
     codes=""
+    content=content_copi;
     if(number==1){
         drow_drow(drow_code)
     }
@@ -77,12 +78,7 @@ function clear_info(){
     codes=""
     content=""
     drow_code=""
-    if(number==1){
-        drow_drow(drow_code)
-    }
-    else{
-        drow(content)
-    }
+    clear();
     code.innerText=""
 }
 
@@ -99,10 +95,10 @@ function readFileContent(file) {
 
     reader.onload = (e) => {
         content = e.target.result;
+        content_copi=content;
         drow(content);
         code.innerText=codes
     }
-
     reader.onerror = (e) => {
         console.error("Ошибка при чтении файла:", e);
     };
