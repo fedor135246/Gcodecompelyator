@@ -13,12 +13,8 @@ let typels=0
 let xpos=0,ypos=0;
 //кнопки
 function safeFileTxt(){
-    if(number){
-        const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
-    }
-    else{
-        const blob = new Blob([drow_code], { type: "text/plain;charset=utf-8" })
-    }
+    console.log(number)
+    const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -32,12 +28,7 @@ function safeFileTxt(){
 }
 document.querySelector('[data-button-save-txt]').addEventListener('click', safeFileTxt);
 function safeFileGcode(){
-    if(number){
-        const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
-    }
-    else{
-        const blob = new Blob([drow_code], { type: "text/plain;charset=utf-8" })
-    }
+    const blob = new Blob([codes], { type: "text/plain;charset=utf-8" })
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -49,7 +40,7 @@ function safeFileGcode(){
         URL.revokeObjectURL(url);
     }, 1000);
 }
-document.querySelector('[data-button-save-txt]').addEventListener('click', safeFileGcode);
+document.querySelector('[data-button-save-gcode]').addEventListener('click', safeFileGcode);
 
 
 function types(){
@@ -71,7 +62,12 @@ document.querySelector('[data-button-types]').addEventListener('click', types);
 
 function reload(){
     codes=""
-    drow(content)
+    if(number==1){
+        drow_drow(drow_code)
+    }
+    else{
+        drow(content)
+    }
     code.innerText=codes
 }
 
@@ -296,14 +292,12 @@ document.querySelector('canvas').addEventListener('mouseup', finish)
 
 function start(e){
     if(number==1){
-        console.log(e.offsetX,e.offsetY,"start")
         drow_code+=" x1="+(e.offsetX*corect)+", y1="+(e.offsetY*corect)+","
     }
 }
 
 function finish(e){
     if(number==1){
-        console.log(e.offsetX,e.offsetY,"finish")
         drow_code+=" x2="+(e.offsetX*corect)+", y2="+(e.offsetY*corect)+",;"
         codes=""
         drow_drow(drow_code);
